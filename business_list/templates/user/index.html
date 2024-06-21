@@ -1,0 +1,53 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+List of User
+{% endblock title%}
+
+
+{% block content %}
+
+<a href="/user/create" class="btn btn-primary float-end mt-1 me-1">Add Applicants</a>
+
+<div class="col-md-8 mx-auto">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Business Name</th>
+                    <th>User Name</th>
+                    <th>Location of Business</th>
+                    <th>Types of Food Stall</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.user_id }}</td>
+                        <td>{{ user.stall_name }}</td>
+                        <td>{{ user.firs_name }}-{{ user.last_name }}</td>
+                        <td>{{ user.stall_location}}</td>
+                        <td>{{ user.stall_type }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/users/show/{{ user.user_id }}" class="btn btn-primary">View</a>
+                                <a href="/users/edit/{{ user.user_id }}" class="btn btn-success">Edit</a>
+                                <a href="/users/delete/{{ user.user_id }}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                    
+                    
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock content %}
+    
+    

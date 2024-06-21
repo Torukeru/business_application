@@ -1,0 +1,38 @@
+{% extends "layouts/base.html" %}
+{% block title %}
+{% endblock title %}
+{% block content %}
+<div class="col-md-9 mx-auto">
+    <div class="table-responsive">
+        <table class ="table table-hover">
+            <thead>
+                <tr>
+                    <th>Stall Id</th>
+                    <th>Types of Food Stall</th>
+                    <th>Location of the Stall</th>
+                    <th>Date Created</th>
+                    <th>Date Updated</th>
+                    <th>Interaction</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stall in stalls %}
+                <tr>
+                    <td>{{stall.stall_id}}</td>
+                    <td>{{stall.stall_type}}</td>
+                    <td>{{stall.stall_location}}</td>
+                    <td>{{stall.date_created}}</td>
+                    <td>{{stall.date_updated}}</td>
+                    <td>
+                        <a href="/stall/show/{{stall.stall_id}}" class="btn btn-primary float-end">View</a>
+                        <a href="/stall/delete/{{stall.stall_id}}" class="btn btn-danger float-end">Delete</a>
+                        <a href="stall/edit/{{stall.stall_id}}" class="btn btn-secondary float-end">Edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/stall/create" class="btn btn-primary float-end">create stall</a>
+    </div>
+</div>
+{% endblock content %}

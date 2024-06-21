@@ -1,0 +1,18 @@
+{% extends "layouts/base.html" %}
+{% block title %}show page{% endblock title %}
+{% block content %}
+<div class="col-md-4 mx-auto mt-3">
+    <form action="/stall/show" method="post">
+    {% comment %} Business Name {% endcomment %}
+    <div class="mb-3">
+        <label for="stall_type">Type of Food Stall</label>
+        <input type="text" class="form-control" id="stall_type" name="stall_type" value="{{ stall.stall_type }}" readonly />
+    </div>
+    <div class="mb-3">
+        <label for="stall_location">Type of Food Stall</label>
+        <input type="text" class="form-control" id="stall_location" name="stall_location" value="{{ stall.stall_location }}" readonly />
+    </div>
+    <a href="/stall" class="btn btn-secondary float-end col-12 col-md-3">Back</a>
+    </form>
+</div>
+{% endblock content %}
